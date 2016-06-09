@@ -1,3 +1,4 @@
+require 'celluloid/current'
 require 'reel/rack/server'
 
 module Rack

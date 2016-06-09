@@ -1,12 +1,12 @@
 # Adapted from code orinially Copyright (c) 2013 Jonathan Stott
-
+require 'celluloid/current'
 require 'reel'
 require 'rack'
 
 module Reel
   module Rack
     class Server < Reel::Server::HTTP
-      include Celluloid::Logger
+      include Celluloid::Internals::Logger
 
       attr_reader :app
 
