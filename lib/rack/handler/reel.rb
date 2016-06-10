@@ -21,7 +21,7 @@ module Rack
         begin
           sleep
         rescue Interrupt
-          Celluloid.logger.info "Interrupt received... shutting down"
+          Celluloid.logger.info "Interrupt received... shutting down" unless options[:quiet] 
           supervisor.terminate
         end
       end

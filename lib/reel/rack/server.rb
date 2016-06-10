@@ -14,8 +14,10 @@ module Reel
         raise ArgumentError, "no host given" unless options[:Host]
         raise ArgumentError, "no port given" unless options[:Port]
 
-        info  "A Reel good HTTP server! (Codename \"#{::Reel::CODENAME}\")"
-        info "Listening on http://#{options[:Host]}:#{options[:Port]}"
+        unless options[:quiet]
+          info  "A Reel good HTTP server! (Codename \"#{::Reel::CODENAME}\")"
+          info "Listening on http://#{options[:Host]}:#{options[:Port]}"
+        end
 
         super(options[:Host], options[:Port], &method(:on_connection))
         @app = app
